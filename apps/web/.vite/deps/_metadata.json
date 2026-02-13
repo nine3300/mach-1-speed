@@ -1,0 +1,118 @@
+{
+  "hash": "6421bd31",
+  "configHash": "1116b3c0",
+  "lockfileHash": "ff0701ef",
+  "browserHash": "9de3e8a9",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../../../node_modules/.pnpm/react@18.3.1/node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "df6dc036",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "9e64e91b",
+      "needsInterop": true
+    },
+    "framer-motion": {
+      "src": "../../../../node_modules/.pnpm/framer-motion@12.34.0_react-dom@18.3.1_react@18.3.1/node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "84dd8566",
+      "needsInterop": false
+    },
+    "lucide-react": {
+      "src": "../../../../node_modules/.pnpm/lucide-react@0.563.0_react@18.3.1/node_modules/lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "3dae9ee9",
+      "needsInterop": false
+    },
+    "firebase/auth": {
+      "src": "../../../../node_modules/.pnpm/firebase@12.9.0/node_modules/firebase/auth/dist/esm/index.esm.js",
+      "file": "firebase_auth.js",
+      "fileHash": "91b490c7",
+      "needsInterop": false
+    },
+    "firebase/app": {
+      "src": "../../../../node_modules/.pnpm/firebase@12.9.0/node_modules/firebase/app/dist/esm/index.esm.js",
+      "file": "firebase_app.js",
+      "fileHash": "fd8c4eb6",
+      "needsInterop": false
+    },
+    "firebase/firestore": {
+      "src": "../../../../node_modules/.pnpm/firebase@12.9.0/node_modules/firebase/firestore/dist/esm/index.esm.js",
+      "file": "firebase_firestore.js",
+      "fileHash": "5259a5f5",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../../../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "2bd663ab",
+      "needsInterop": true
+    },
+    "class-variance-authority": {
+      "src": "../../../../node_modules/.pnpm/class-variance-authority@0.7.1/node_modules/class-variance-authority/dist/index.mjs",
+      "file": "class-variance-authority.js",
+      "fileHash": "27177c6f",
+      "needsInterop": false
+    },
+    "sonner": {
+      "src": "../../../../node_modules/.pnpm/sonner@2.0.7_react-dom@18.3.1_react@18.3.1/node_modules/sonner/dist/index.mjs",
+      "file": "sonner.js",
+      "fileHash": "4a5f470a",
+      "needsInterop": false
+    },
+    "react-hook-form": {
+      "src": "../../../../node_modules/.pnpm/react-hook-form@7.71.1_react@18.3.1/node_modules/react-hook-form/dist/index.esm.mjs",
+      "file": "react-hook-form.js",
+      "fileHash": "71f2a1c5",
+      "needsInterop": false
+    },
+    "zod": {
+      "src": "../../../../node_modules/.pnpm/zod@3.25.76/node_modules/zod/index.js",
+      "file": "zod.js",
+      "fileHash": "42195421",
+      "needsInterop": false
+    },
+    "@hookform/resolvers/zod": {
+      "src": "../../../../node_modules/.pnpm/@hookform+resolvers@5.2.2_react-hook-form@7.71.1/node_modules/@hookform/resolvers/zod/dist/zod.mjs",
+      "file": "@hookform_resolvers_zod.js",
+      "fileHash": "cb212fdd",
+      "needsInterop": false
+    },
+    "clsx": {
+      "src": "../../../../node_modules/.pnpm/clsx@2.1.1/node_modules/clsx/dist/clsx.mjs",
+      "file": "clsx.js",
+      "fileHash": "f3d44199",
+      "needsInterop": false
+    },
+    "tailwind-merge": {
+      "src": "../../../../node_modules/.pnpm/tailwind-merge@2.6.0/node_modules/tailwind-merge/dist/bundle-mjs.mjs",
+      "file": "tailwind-merge.js",
+      "fileHash": "16c9a890",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-B4SROVBC": {
+      "file": "chunk-B4SROVBC.js"
+    },
+    "chunk-7P6KGXUD": {
+      "file": "chunk-7P6KGXUD.js"
+    },
+    "chunk-Z2RFQZ5K": {
+      "file": "chunk-Z2RFQZ5K.js"
+    },
+    "chunk-V7LRDSOK": {
+      "file": "chunk-V7LRDSOK.js"
+    },
+    "chunk-WSPBAE7L": {
+      "file": "chunk-WSPBAE7L.js"
+    },
+    "chunk-ZS7NZCD4": {
+      "file": "chunk-ZS7NZCD4.js"
+    }
+  }
+}

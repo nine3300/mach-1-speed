@@ -1,0 +1,61 @@
+{
+  "hash": "6421bd31",
+  "configHash": "1116b3c0",
+  "lockfileHash": "ff0701ef",
+  "browserHash": "86b5ab36",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../../../node_modules/.pnpm/react@18.3.1/node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "a66e1425",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "d234449c",
+      "needsInterop": true
+    },
+    "framer-motion": {
+      "src": "../../../../node_modules/.pnpm/framer-motion@12.34.0_react-dom@18.3.1_react@18.3.1/node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "3bb22ad1",
+      "needsInterop": false
+    },
+    "lucide-react": {
+      "src": "../../../../node_modules/.pnpm/lucide-react@0.563.0_react@18.3.1/node_modules/lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "322110d8",
+      "needsInterop": false
+    },
+    "firebase/auth": {
+      "src": "../../../../node_modules/.pnpm/firebase@12.9.0/node_modules/firebase/auth/dist/esm/index.esm.js",
+      "file": "firebase_auth.js",
+      "fileHash": "edd6166c",
+      "needsInterop": false
+    },
+    "firebase/app": {
+      "src": "../../../../node_modules/.pnpm/firebase@12.9.0/node_modules/firebase/app/dist/esm/index.esm.js",
+      "file": "firebase_app.js",
+      "fileHash": "a1e6d6ab",
+      "needsInterop": false
+    },
+    "firebase/firestore": {
+      "src": "../../../../node_modules/.pnpm/firebase@12.9.0/node_modules/firebase/firestore/dist/esm/index.esm.js",
+      "file": "firebase_firestore.js",
+      "fileHash": "adf052fe",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-V7LRDSOK": {
+      "file": "chunk-V7LRDSOK.js"
+    },
+    "chunk-B4SROVBC": {
+      "file": "chunk-B4SROVBC.js"
+    },
+    "chunk-ZS7NZCD4": {
+      "file": "chunk-ZS7NZCD4.js"
+    }
+  }
+}
