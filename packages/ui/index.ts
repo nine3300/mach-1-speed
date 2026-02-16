@@ -8,7 +8,7 @@
 //
 // This package contains:
 // - Custom components (Header, Counter)
-// - Shadcn UI components (Button, Card)
+// - Shadcn UI components (Button, Card, Dialog, Badge, etc.)
 // - Utility functions (cn for class merging)
 // =============================================================================
 
@@ -27,6 +27,22 @@ export {
   CardContent,
 } from './components/ui/card'
 export { Toaster } from './components/ui/sonner'
+export {
+  Dialog,
+  DialogPortal,
+  DialogOverlay,
+  DialogClose,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+} from './components/ui/dialog'
+export { Badge, badgeVariants } from './components/ui/badge'
+export { Checkbox } from './components/ui/checkbox'
+export { ScrollArea, ScrollBar } from './components/ui/scroll-area'
+export { Input } from './components/ui/input'
 
 // Utilities
 export { cn } from './lib/utils'

@@ -8,7 +8,17 @@
     "./Counter": "./components/Counter.tsx",
     "./Button": "./components/ui/button.tsx",
     "./Card": "./components/ui/card.tsx",
-    "./utils": "./lib/utils.ts"
+    "./Dialog": "./components/ui/dialog.tsx",
+    "./Badge": "./components/ui/badge.tsx",
+    "./Checkbox": "./components/ui/checkbox.tsx",
+    "./ScrollArea": "./components/ui/scroll-area.tsx",
+    "./Input": "./components/ui/input.tsx",
+    "./components/ui/dialog": "./components/ui/dialog.tsx",
+    "./components/ui/badge": "./components/ui/badge.tsx",
+    "./components/ui/checkbox": "./components/ui/checkbox.tsx",
+    "./components/ui/scroll-area": "./components/ui/scroll-area.tsx",
+    "./components/ui/input": "./components/ui/input.tsx",
+    "./lib/utils": "./lib/utils.ts"
   },
   "scripts": {
     "lint": "eslint \"**/*.{ts,tsx}\"",
@@ -20,8 +30,12 @@
     "react-dom": "^18.3.1"
   },
   "dependencies": {
+    "@radix-ui/react-checkbox": "^1.1.0",
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-scroll-area": "^1.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "lucide-react": "^0.563.0",
     "next-themes": "^0.4.6",
     "sonner": "^2.0.7",
     "tailwind-merge": "^2.6.0"
