@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "mach-1-speed"
-  }
+  },
+  "targets": {
+    "mach-1-speed": {
+      "hosting": {
+        "web": [
+          "mach-1-speed"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

@@ -1,16 +1,21 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useWorkoutStore } from '../stores/useWorkoutStore'
+import { useAuth } from '../components/AuthProvider'
 import { ExerciseCard } from '../components/workout/ExerciseCard'
 import { AddExerciseModal } from '../components/workout/AddExerciseModal'
 import { Button } from '@repo/ui'
 import { Plus, Check } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { saveWorkout } from '../lib/firebaseService'
+import type { Workout } from '../types/workout'
 
 export function ActiveWorkout() {
   const navigate = useNavigate()
+  const { user } = useAuth()
   const [modalOpen, setModalOpen] = useState(false)
   const [elapsedTime, setElapsedTime] = useState(0)
+  const [saving, setSaving] = useState(false)
   const {
     currentWorkout,
     startWorkout,
@@ -51,11 +56,36 @@ export function ActiveWorkout() {
     return `${minutes}:${secs.toString().padStart(2, '0')}`
   }
 
-  const handleFinish = () => {
-    finishWorkout()
-    // eslint-disable-next-line no-warning-comments
-    // TODO: Save to Firestore
-    navigate('/')
+  const handleFinish = async () => {
+    if (!user || !currentWorkout?.id) return
+
+    try {
+      setSaving(true)
+
+      // Create the final workout object with end time
+      const finalWorkout: Workout = {
+        ...currentWorkout,
+        endTime: new Date(),
+        completed: true,
+        userId: user.uid,
+      } as Workout
+
+      // Save to Firestore
+      await saveWorkout(user.uid, finalWorkout)
+
+      // Clear the store
+      finishWorkout()
+
+      // Navigate back to dashboard
+      navigate('/')
+    } catch (error) {
+      console.error('Failed to save workout:', error)
+      // Still navigate back even if save fails (workout was in progress)
+      finishWorkout()
+      navigate('/')
+    } finally {
+      setSaving(false)
+    }
   }
 
   if (!currentWorkout) {
@@ -75,9 +105,18 @@ export function ActiveWorkout() {
                 {currentWorkout.exercises.length !== 1 ? 's' : ''}
               </p>
             </div>
-            <Button onClick={handleFinish} className="gap-2 h-11" size="lg">
-              <Check className="h-5 w-5" />
-              Finish
+            <Button onClick={handleFinish} disabled={saving} className="gap-2 h-11" size="lg">
+              {saving ? (
+                <>
+                  <div className="animate-spin h-5 w-5 border-2 border-background border-t-foreground rounded-full" />
+                  Saving...
+                </>
+              ) : (
+                <>
+                  <Check className="h-5 w-5" />
+                  Finish
+                </>
+              )}
             </Button>
           </div>
 

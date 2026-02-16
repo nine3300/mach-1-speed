@@ -12,6 +12,7 @@ import { Dumbbell, Activity, Flame, Plus, LogOut } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardContent } from '@repo/ui/Card'
 import { Button } from '@repo/ui/Button'
 import { useAuth } from '../components/AuthProvider'
+import { updateUserWorkoutTemplate } from '../lib/firebaseService'
 
 // ============================================================================
 // Mock Data
@@ -104,11 +105,23 @@ function StatCard({ icon, label, value, unit }: StatCardProps) {
 
 export function Dashboard() {
   const navigate = useNavigate()
-  const { signOut } = useAuth()
+  const { user, signOut } = useAuth()
 
-  const handleStartWorkout = (templateId: string) => {
-    // You can pass template data through context or store if needed
-    navigate('/active-workout', { state: { templateId } })
+  const handleStartWorkout = async (templateId: string) => {
+    // Get the template name
+    const template = workoutTemplates.find(t => t.id === templateId)
+    if (!template || !user) return
+
+    try {
+      // Save selected template to user profile in Firestore
+      await updateUserWorkoutTemplate(user.uid, template.name)
+      // Navigate to active workout
+      navigate('/active-workout', { state: { templateId } })
+    } catch (error) {
+      console.error('Failed to save workout template:', error)
+      // Still navigate even if save fails
+      navigate('/active-workout', { state: { templateId } })
+    }
   }
 
   return (
@@ -121,7 +134,7 @@ export function Dashboard() {
         </div>
         <Button variant="outline" size="sm" onClick={signOut} className="gap-2">
           <LogOut className="h-4 w-4" />
-          Logout
+          <span className="hidden sm:inline">Logout</span>
         </Button>
       </div>
 
