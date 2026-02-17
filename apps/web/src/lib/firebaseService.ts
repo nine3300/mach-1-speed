@@ -12,28 +12,30 @@ import {
 } from 'firebase/firestore'
 import { db } from './firebase'
 import type { Workout, Exercise, Set } from '../types/workout'
+import type { UserProfile } from './db/user'
 
-interface FirestoreWorkout extends Omit<Workout, 'startTime' | 'endTime'> {
+export interface FirestoreWorkout extends Omit<Workout, 'startTime' | 'endTime'> {
   startTime: Timestamp
   endTime?: Timestamp | null
   createdAt?: Timestamp
-}
-
-export interface UserProfile {
-  uid: string
-  email?: string
-  displayName?: string
-  photoURL?: string
-  selectedWorkoutTemplate?: string
-  createdAt: Timestamp
-  updatedAt: Timestamp
 }
 
 /**
  * Save a completed workout to Firestore
  */
 export async function saveWorkout(userId: string, workout: Workout): Promise<string> {
+  if (!userId) {
+    throw new Error('❌ userId is required to save a workout')
+  }
+
+  if (!workout) {
+    throw new Error('❌ workout object is required')
+  }
+
   try {
+    console.log('📝 Preparing to save workout for user:', userId)
+    console.log('📋 Workout data:', workout)
+
     // Prepare workout data for Firestore (convert Date objects to Timestamps)
     const workoutData = {
       userId,
@@ -56,6 +58,8 @@ export async function saveWorkout(userId: string, workout: Workout): Promise<str
 
     // Add to Firestore
     const workoutsRef = collection(db, 'users', userId, 'workouts')
+    console.log('📍 Firestore path:', `users/${userId}/workouts`)
+
     const docRef = await addDoc(workoutsRef, workoutData)
 
     console.log('✅ Workout saved to Firestore:', docRef.id)
@@ -226,6 +230,8 @@ export async function updateUserWorkoutTemplate(
   templateName: string
 ): Promise<void> {
   try {
+    console.log('📝 Updating workout template for user:', userId, 'Template:', templateName)
+
     const userRef = doc(db, 'users', userId)
     const now = Timestamp.now()
 
