@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import type { User } from 'firebase/auth'
 import { onAuthStateChanged, signOut as firebaseSignOut } from 'firebase/auth'
 import { auth } from '../lib/firebase'
-import { createOrUpdateUserProfile } from '../lib/firebaseService'
+import { syncUserToFirestore } from '../lib/db/user'
 
 type AuthContextValue = {
   user: User | null
@@ -19,22 +19,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async current => {
-      setUser(current)
+      try {
+        setUser(current)
 
-      // Create or update user profile in Firestore when they log in
-      if (current) {
-        try {
-          await createOrUpdateUserProfile(current.uid, {
-            email: current.email || undefined,
-            displayName: current.displayName || undefined,
-            photoURL: current.photoURL || undefined,
-          })
-        } catch (error) {
-          console.error('Failed to create/update user profile:', error)
+        // Sync user data to Firestore when they log in
+        if (current) {
+          console.log('👤 User logged in:', current.uid)
+          try {
+            await syncUserToFirestore(current)
+            console.log('✅ User sync completed successfully')
+          } catch (syncError) {
+            console.error('❌ Error during user sync:', syncError)
+            // Don't throw - continue with app loading even if sync fails
+          }
+        } else {
+          console.log('👤 User logged out')
         }
+      } finally {
+        setLoading(false)
       }
-
-      setLoading(false)
     })
     return unsubscribe
   }, [])

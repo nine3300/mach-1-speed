@@ -13,6 +13,8 @@ import { AuthForm } from './components/AuthForm'
 import AuthLayout from './components/AuthLayout'
 import { Dashboard } from './pages/Dashboard'
 import ActiveWorkout from './pages/ActiveWorkout'
+import History from './pages/History'
+import Analytics from './pages/Analytics'
 import { Loader2 } from 'lucide-react'
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -60,6 +62,22 @@ function AppContent() {
         element={
           <ProtectedRoute>
             <ActiveWorkout />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/history"
+        element={
+          <ProtectedRoute>
+            <History />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/analytics"
+        element={
+          <ProtectedRoute>
+            <Analytics />
           </ProtectedRoute>
         }
       />
