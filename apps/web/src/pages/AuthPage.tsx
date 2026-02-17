@@ -62,7 +62,7 @@ export function AuthPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-[#0F1419] flex flex-col items-center justify-center p-4">
       {/* Main Card */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -70,15 +70,15 @@ export function AuthPage() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+        <div className="w-full max-w-md mx-auto bg-gradient-to-br from-[#2A3142] to-[#1A1F2E] text-white backdrop-blur-xl border border-[#2A3142] shadow-2xl rounded-2xl p-8">
           {/* Header */}
           <div className="mb-8 text-center">
-            <h1 className="text-3xl font-black text-gray-900 mb-2">Welcome back</h1>
-            <p className="text-gray-600">Sign in to continue to Mach 1 Speed</p>
+            <h1 className="text-3xl font-black text-white mb-2">Welcome back</h1>
+            <p className="text-zinc-400">Sign in to continue to Mach 1 Speed</p>
           </div>
 
           {/* Tab Navigation */}
-          <div className="flex gap-4 mb-8 bg-gray-100 p-1.5 rounded-lg">
+          <div className="flex gap-4 mb-8 p-1.5 rounded-lg">
             <button
               type="button"
               onClick={() => {
@@ -87,8 +87,8 @@ export function AuthPage() {
               }}
               className={`flex-1 py-2.5 px-4 rounded-md font-semibold transition-all text-sm ${
                 mode === 'login'
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-[#CCFF00] text-black shadow-md'
+                  : 'text-zinc-300 hover:bg-white/10'
               }`}
             >
               Log In
@@ -101,8 +101,8 @@ export function AuthPage() {
               }}
               className={`flex-1 py-2.5 px-4 rounded-md font-semibold transition-all text-sm ${
                 mode === 'signup'
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-[#CCFF00] text-black shadow-md'
+                  : 'text-zinc-300 hover:bg-white/10'
               }`}
             >
               Sign Up
@@ -112,7 +112,7 @@ export function AuthPage() {
           <form onSubmit={handleSubmit(handleAuth)} className="space-y-5">
             {/* Email Input */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+              <label className="block text-sm font-medium text-zinc-300 mb-2 flex items-center gap-2">
                 <Mail className="w-4 h-4" />
                 Email
               </label>
@@ -120,16 +120,16 @@ export function AuthPage() {
                 type="email"
                 {...register('email')}
                 placeholder="you@example.com"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                className="w-full px-3 py-2 rounded-lg border border-white/10 bg-white/5 text-white placeholder-zinc-500 focus:outline-none focus:border-[#CCFF00]/50 transition-colors duration-200"
               />
               {errors.email && (
-                <p className="text-red-500 text-xs mt-1.5 font-semibold">{errors.email.message}</p>
+                <p className="text-rose-400 text-xs mt-1.5 font-semibold">{errors.email.message}</p>
               )}
             </div>
 
             {/* Password Input */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+              <label className="block text-sm font-medium text-zinc-300 mb-2 flex items-center gap-2">
                 <Lock className="w-4 h-4" />
                 Password
               </label>
@@ -138,18 +138,18 @@ export function AuthPage() {
                   type={showPassword ? 'text' : 'password'}
                   {...register('password')}
                   placeholder="••••••••"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                  className="w-full px-3 py-2 rounded-lg border border-white/10 bg-white/5 text-white placeholder-zinc-500 focus:outline-none focus:border-[#CCFF00]/50 transition-colors duration-200"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-200"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
               {errors.password && (
-                <p className="text-red-500 text-xs mt-1.5 font-semibold">
+                <p className="text-rose-400 text-xs mt-1.5 font-semibold">
                   {errors.password.message}
                 </p>
               )}
@@ -160,9 +160,9 @@ export function AuthPage() {
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="p-3 bg-red-50 border border-red-200 rounded-lg"
+                className="p-3 bg-rose-900/40 border border-rose-700/30 rounded-lg"
               >
-                <p className="text-red-700 text-sm font-semibold">{formError}</p>
+                <p className="text-rose-200 text-sm font-semibold">{formError}</p>
               </motion.div>
             )}
 
@@ -171,7 +171,7 @@ export function AuthPage() {
               <div className="text-right">
                 <button
                   type="button"
-                  className="text-sm text-gray-600 hover:text-blue-600 font-semibold transition-colors"
+                  className="text-sm text-zinc-400 hover:text-[#CCFF00] font-semibold transition-colors"
                   onClick={() => alert('Password reset coming soon')}
                 >
                   Forgot password?
@@ -185,7 +185,7 @@ export function AuthPage() {
               disabled={submitting}
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
-              className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all shadow-md hover:shadow-lg disabled:opacity-70 flex items-center justify-center gap-2 text-base"
+              className="w-full h-12 bg-[#CCFF00] hover:bg-[#BBFF00] text-black font-bold rounded-lg transition-all shadow-md hover:shadow-lg disabled:opacity-70 flex items-center justify-center gap-2 text-base"
             >
               {submitting ? (
                 <>
@@ -201,17 +201,19 @@ export function AuthPage() {
           {/* Divider */}
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300"></div>
+              <div className="w-full border-t border-white/10"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-3 bg-white text-gray-600 font-semibold">Or continue with</span>
+              <span className="px-3 bg-gradient-to-br from-[#2A3142] to-[#1A1F2E] text-zinc-400 font-semibold">
+                Or continue with
+              </span>
             </div>
           </div>
 
           {/* Google Sign In */}
           <button
             type="button"
-            className="w-full h-12 border-2 border-gray-300 hover:border-gray-400 text-gray-900 font-bold rounded-lg transition-all flex items-center justify-center gap-3 bg-white hover:bg-gray-50"
+            className="w-full h-12 border border-white/10 bg-white/5 text-white hover:bg-white/10 font-bold rounded-lg transition-all flex items-center justify-center gap-3"
             onClick={() => alert('Google sign-in coming soon')}
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -237,7 +239,7 @@ export function AuthPage() {
         </div>
 
         {/* Footer Text */}
-        <p className="text-center text-gray-600 text-xs mt-6">
+        <p className="text-center text-zinc-400 text-xs mt-6">
           By signing in, you agree to our Terms of Service and Privacy Policy
         </p>
       </motion.div>

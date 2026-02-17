@@ -178,7 +178,7 @@ export default function Analytics() {
               onClick={() => setGoal('build_muscle')}
               className={`px-4 py-2 rounded-lg text-sm ${
                 goal === 'build_muscle'
-                  ? 'bg-[#CCFF00] text黑'
+                  ? 'bg-[#CCFF00] text-black'
                   : 'bg-[#0F1419] border border-[#2A3142] text-[#9CA3AF]'
               }`}
             >
